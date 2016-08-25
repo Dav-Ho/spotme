@@ -1,0 +1,51 @@
+<h2>User Preference</h2>
+
+<%= form_tag("/workouts", method: "post") do %>
+<div>
+<%= field_tag(:first_name) %>
+<%= text_field_tag(:first_name) %>
+</div>
+
+<div>
+<%= field_tag(:last_name) %>
+<%= text_field_tag(:last_name) %>
+</div>
+
+<div>
+<%= field_tag(:gender) %>
+<%= text_field_tag(:gender) %>
+</div>
+
+<div>
+<%= field_tag(:partner_gender) %>
+<%= text_field_tag(:partner_gender) %>
+</div>
+<div>
+<%= field_tag(:image) %>
+<%= text_field_tag(:image) %>
+</div>
+<div>
+<%= field_tag(:age) %>
+<%= text_field_tag(:age) %>
+</div>
+<div>
+<%= field_tag(:relationship_status) %>
+<%= text_field_tag(:relationship_status) %>
+</div>
+<div>
+<%= field_tag(:user_exp) %>
+<%= text_field_tag(:user_exp) %>
+</div>
+<div>
+<%= field_tag(:gym) %>
+<%= text_field_tag(:gym) %>
+</div>
+<div>
+<%= field_tag(:bio) %>
+<%= text_field_tag(:bio) %>
+</div>
+<div>
+<%= submit_tag("Submit") %>
+</div>
+
+<% end %>
