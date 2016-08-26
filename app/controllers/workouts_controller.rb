@@ -1,10 +1,14 @@
 class WorkoutsController < ApplicationController
 
   def index
+    if current_user
+      @workouts = current_user  
+    else
+      redirect_to new_user_session_path, notice: "You are not logged in"
+    end
   end
 
   def new
-    @workout = Workout.new
   end
 
   def create
@@ -20,6 +24,7 @@ class WorkoutsController < ApplicationController
     gym: params[:gym],
     bio: params[:bio]
     )
+  end
 end
 
 
