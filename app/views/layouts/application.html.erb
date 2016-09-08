@@ -6,16 +6,113 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Select2  -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
   </head>
 
-  <body>
+     <body class="no-trans">
+  		<!-- scrollToTop -->
+  		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
 
+  		<!-- header start -->
+  		<header class="header fixed clearfix navbar navbar-fixed-top">
+  			<div class="container">
+  				<div class="row">
+  					<div class="col-md-4">
+
+  						<!-- header-left start -->
+  						<div class="header-left">
+
+  							<!-- name-and-slogan -->
+  							<div class="logo-section smooth-scroll">
+  								<div class="brand"><a href="/welcome"><b>SPOT</b>ME</a></div>
+  							</div>
+
+  						</div>
+  						<!-- header-left end -->
+
+  					</div>
+  					<div class="col-md-8">
+
+  						<!-- header-right start -->
+  						<div class="header-right">
+
+  							<!-- main-navigation start -->
+  							<div class="main-navigation animated">
+
+  								<!-- navbar start -->
+  								<nav class="navbar navbar-default" role="navigation">
+  									<div class="container-fluid">
+
+  										<!-- Toggle get grouped for better mobile display -->
+  										<div class="navbar-header">
+  											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+  												<span class="sr-only">Toggle navigation</span>
+  												<span class="icon-bar"></span>
+  												<span class="icon-bar"></span>
+  												<span class="icon-bar"></span>
+  											</button>
+  										</div>
+
+  										<!-- Collect the nav links, forms, and other content for toggling -->
+  										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+  											<ul class="nav navbar-nav navbar-right">
+  												<li class="active"><a href="/matches">Home</a></li>
+  												<li><a href="#service">About</a></li>
+  												<li><a href="/users/sign_in">Login</a></li>
+                          <li><a href="">Messages</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false"> Profile <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="/users/sign_up">Sign up</a></li>
+                                <% if user_signed_in? %>
+                              <li><%= link_to "Edit Profile", "/users/edit" %></li>
+                              <li><%= link_to "Logout", destroy_user_session_path, :method => "delete" %></li>
+                                <% else  %>
+                              <li><a href="/users/sign_in">Login Account</a></li>
+                                <% end %>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                            </ul>
+                          </li>
+  											</ul>
+  										</div>
+
+  									</div>
+  								</nav>
+  								<!-- navbar end -->
+
+  							</div>
+  							<!-- main-navigation end -->
+
+  						</div>
+  						<!-- header-right end -->
+
+  					</div>
+  				</div>
+  			</div>
+  		</header>
+  		<!-- header end -->
     <%= yield %>
 
+    <!-- .subfooter start -->
+
+
+    <!-- footer end -->
+    <footer id="footer">
+      <div class="site-footer">
+      <div class="subfooter">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-center">Copyright © 2016 Template by <a target="_blank" href="http://webthemez.com">webthemez.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+      <!-- .subfooter end -->
   </body>
+
 </html>
-
-
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>

@@ -8,6 +8,8 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'devise'
 
+gem "font-awesome-rails"
+
 gem 'bootstrap-sass'
 
 gem 'puma', '~> 3.0'

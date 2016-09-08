@@ -1,0 +1,16 @@
+<br/><br /><br /><br />
+
+<div class="page-wrapper">
+
+
+<% @users.each do |user| %>
+<div class="col-md-4">
+<div class= "index_format">
+  <h3>User_name: <%= link_to user.user_name, "/matches/#{user.id}" %></h3>
+  <h4>Age: <%= user.age %></h4>
+</div>
+</div>
+<% end %>
+<%= link_to "Logout", destroy_user_session_path, method: 'delete' %>
+<%= link_to "Edit Profile", "/users/edit" %>
+</div>

@@ -1,3 +1,6 @@
+<br /> <br /> <br /> <br />  <br /> <br />
+
+<div class="border-form-div">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -10,7 +13,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, class:"form-control", autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -36,13 +39,96 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+    <h2>User Profile</h2>
+
+  <div class = "field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div class = "field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+
+  <div class = "field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class = "field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+
   <div class="field">
     <%= f.label :zip_code %><br />
     <%= f.text_field :zip_code, autofocus: true %>
   </div>
 
+
+  <div class = "field">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, ['male', 'female']%>
+
+  </div>
+
+  <div class = "field">
+    <%= f.label :Partner_preference %><br />
+      <%= f.select :partner_gender, ['Male & Female','male', 'female']%>
+  </div>
+
+  <div class = "field">
+    <%= f.label :image %><br />
+    <%= f.text_field :image %>
+  </div>
+
+  <div class = "field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </div>
+
+  <div class  = "field form-group">
+    <%= f.label :relationship_status %><br />
+    <%= f.select :relationship_status, ['Single','In Relationship', 'Married'] %>
+  </div>
+
+  <div class = "field">
+    <%= f.label :What_is_your_experience? %><br />
+    <%= f.select :user_exp, ['None','Beginner', 'Intermediate', 'Expert'] %>
+  </div>
+
+  <div class = "field">
+    <%= f.label :gym %><br />
+    <%= f.text_field :gym %>
+  </div>
+
+  <div class = "field">
+    <%= f.label :activities, "Select your activities" %><br />
+    <%= f.select :user_activities, options_for_select(Activity.all.map(&:name)), {}, {:multiple => true, class: 'js-example-basic-multiple form-control'} %>
+  </div>
+
+<script type="text/javascript">
+  $(".js-example-basic-single").select2();
+</script>
+
+  <script type="text/javascript">
+    $(".js-example-basic-multiple").select2();
+  </script>
+
+    <%= f.label :bio %><br />
+    <%= f.text_field :bio, autofocus: true %>
+  <br />
+
+  <div class="actions">
+     <%= f.submit "Update",:class=>'btn btn-primary' %>
+  </div>
+  <% end %>
+
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Want to Delete your Account? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class=> 'btn btn-danger' %></p>
 
 <%= link_to "Back", :back %>
+
+</div>
