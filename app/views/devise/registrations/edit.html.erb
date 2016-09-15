@@ -52,13 +52,18 @@
   </div>
 
   <div class = "field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
+    <%= f.label :state %><br />
+    <%= f.select :state, ["AL","AK","AZ","AR", "CA", "CO", "CT",
+      "DE", "DC", "FL", "GA", "HI", "ID", "ID", "IL", "IN", "IA",
+      "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO",
+      "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH",
+      "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT",
+      "VA", "WA", "WV", "WI", "WY"] %>
   </div>
 
   <div class = "field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
   </div>
 
   <div class="field">
@@ -104,8 +109,10 @@
   </div>
 
   <div class = "field">
-    <%= f.label :activities, "Select your activities" %><br />
-    <%= f.select :user_activities, options_for_select(Activity.all.map(&:name)), {}, {:multiple => true, class: 'js-example-basic-multiple form-control'} %>
+    <%= f.fields_for :user_activities do |o| %>
+    <%= o.label :activities, "Select your activities" %><br />
+    <%= o.select :activities, options_for_select(Activity.all.map(&:name)), {}, {:multiple => true, class: 'js-example-basic-multiple form-control'} %>
+    <% end %>
   </div>
 
 <script type="text/javascript">

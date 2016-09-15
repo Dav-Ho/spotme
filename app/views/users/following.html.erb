@@ -1,0 +1,8 @@
+<div class="page-wrapper">
+
+<h2 style="margin-top: 100px;">Here are your the users you are following</h2>
+
+<% @user.following.each do |user_id| %>
+  <%= user_id.first_name %>
+<% end %>
+</div>

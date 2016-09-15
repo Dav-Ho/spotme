@@ -1,6 +1,23 @@
 <br /> <br /> <br /> <br />  <br /> <br />
 <div class="border-form-div">
-<h2><%= current_user.first_name %></h2>
+
+<div class="stats">
+<a href=<%= "/users/#{@users.id}/following" %> >
+  <strong id="following" class="stat">
+    <%= @users.following.count %>
+  </strong>
+  following
+</a>
+
+<a href="/users/#{@users.id}/followers">
+  <strong id="followers" class="stat">
+    <%= @users.followers.count %>
+  </strong>
+  followers
+</a>
+</div>
+
+<h2><%= @users.first_name %></h2>
 <h4>User name: <%= @users.user_name %></h4>
 <h4>Gender: <%= @users.gender %></h4>
 <h4>Searching for workout partners that are: <%= @users.partner_gender %></h4>

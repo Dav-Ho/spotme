@@ -14,12 +14,17 @@ Rails.application.routes.draw do
   get '/matches/:id/edit' => "matches#edit"
   patch "/matches/:id" => "matches#update"
   delete "/matches/:id" => "matches#destroy"
-
-
+  
+  post "/follow/:id" => 'follows#create'
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   devise_scope :user do
     authenticated :user do
       root "matches#index", as: :authenticated_root
-    end
+  end
 
     unauthenticated do
       root "workouts#welcome", as: :unauthenticated_root
