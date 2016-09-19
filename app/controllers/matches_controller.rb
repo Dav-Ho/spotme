@@ -11,11 +11,11 @@ class MatchesController < ApplicationController
       search_gender = current_user.partner_gender
     end
     puts search_gender
-    @users = User.where(gender: search_gender ).where.not(id: current_user.id)
+    @users = User.where(gender: search_gender).where.not(id: current_user.id)
     # state: current_user.state)
   end
 
   def show
-    @users = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
   end
 end

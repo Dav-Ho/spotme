@@ -1,7 +1,8 @@
-<div class="page-wrapper">
-
-<h2 style="margin-top: 100px;">Here are your followers</h2>
+<div class=border-favorite-form>
+<h3>Followers</h3>
 <% @user.followers.each do |user_id| %>
-  <%= user_id.first_name %>
+  <ul>
+    <li><%= user_id.first_name %></li>
+  </ul>
 <% end %>
 </div>
