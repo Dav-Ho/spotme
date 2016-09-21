@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_activities
-  has_many :messages
   has_many :activities, through: :user_activities
+  has_many :messages
   has_many :chatrooms, through: :messages
   validates :user_name, presence: true, uniqueness: true, on: :update
   has_many :active_relationships, class_name: 'Relationship',
@@ -32,5 +32,9 @@ class User < ApplicationRecord
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def chatroom(user_id)
+    chatroom = Chatroom.find_by(current_user_id: [id, user_id], user_id: [id, user_id])
   end
 end

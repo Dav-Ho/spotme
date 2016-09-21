@@ -34,7 +34,7 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # This is the default URL for devise 
+  # This is the default URL for devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Raise an error on page load if there are pending migrations.
@@ -47,6 +47,7 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+  config.action_cable.url = "ws://localhost:3000/cable"
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

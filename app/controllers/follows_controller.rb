@@ -4,6 +4,4 @@ class FollowsController < ApplicationController
   #   current_user.follow(@user)
   #   redirect_to '/matches'
   # end
-
-  
 end

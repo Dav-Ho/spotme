@@ -3,6 +3,7 @@
   <head>
     <title>Spotme</title>
     <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -62,13 +63,10 @@
   										<!-- Collect the nav links, forms, and other content for toggling -->
   										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
   											<ul class="nav navbar-nav navbar-right">
-  												<li class="active"><a href="/matches">Home</a></li>
-
-
-
+  												
                           <% if user_signed_in? %>
-
-                            <li><a href="">Messages</a></li>
+                            <li class="active"><a href="/matches">Home</a></li>
+                            <li><a href="/chatrooms/new">Messages</a></li>
                           <% else %>
                             <li><a href="/users/sign_in">Login</a></li>
                             <li><a href="#service">About</a></li>
