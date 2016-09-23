@@ -1,6 +1,6 @@
 
-<div class="row col-md-8 col-md-offset-2">
-     <div class="panel-heading-primary"><h1><center>Create a Chatroom</center></h1></div>
+<!-- <div class="row col-md-8 col-md-offset-2">
+     <div class="panel-heading-primary"></h1></div>
     <div class="well">
       <div class="chatroom-form">
         <%= form_tag("/chatrooms", method: 'post') do %>
@@ -11,7 +11,9 @@
           <%= submit_tag "Save", class: "btn btn-primary", id: "create-chatroom" %>
         <% end %>
       </div>
-    </div>
+    </div> -->
+
+    <h1><center>Create a Chatroom</center>
 
     <ul class="list-unstyled">
         <% @users.each do |user| %>

@@ -5,7 +5,7 @@
     <%= render 'shared/stats' %>
   </section>
 
-  <% if current_user %>
+  <% if @hide_follow_button == false %>
     <div id="follow_form">
     <% if current_user.following?(@user) %>
       <%= render partial: 'unfollow' %>
@@ -25,6 +25,7 @@
 <h4>User Experience: <%= @user.user_exp %></h4>
 <h4>City: <%= @user.city %></h4>
 <h4>State:<%= @user.state %></h4>
+<h4>Activity: <%= @user.activities.map(&:name).join(", ") %></h4>
 <h4>Bio: <%= @user.bio %></h4>
 
 </div>

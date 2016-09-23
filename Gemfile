@@ -7,12 +7,15 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'devise'
 
+gem "geocoder"
+
 # Create multiple accounts
 gem 'faker'
 
 gem 'rails_12factor', group: :production
 
 gem "font-awesome-rails"
+
 
 gem 'bootstrap-sass'
 

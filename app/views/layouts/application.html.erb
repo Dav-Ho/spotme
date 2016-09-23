@@ -63,7 +63,7 @@
   										<!-- Collect the nav links, forms, and other content for toggling -->
   										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
   											<ul class="nav navbar-nav navbar-right">
-  												
+
                           <% if user_signed_in? %>
                             <li class="active"><a href="/matches">Home</a></li>
                             <li><a href="/chatrooms/new">Messages</a></li>
@@ -102,14 +102,24 @@
   				</div>
   			</div>
   		</header>
+      
+      <% if user_signed_in? %>
+      <section class="stats">
+        <h2><%= current_user.first_name %> <%= current_user.last_name  %></h2>
+        <h4><%= link_to "View my Profile", "/users/#{current_user.id}" %></h4>
+          <%= render 'shared/stats' %>
+      </section>
+      <% end %>
   		<!-- header end -->
     <%= yield %>
+
+
 
     <!-- .subfooter start -->
 
 
     <!-- footer end -->
-    <footer id="footer">
+    <!-- <footer id="footer">
       <div class="site-footer">
       <div class="subfooter">
         <div class="container">
@@ -120,7 +130,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
       <!-- .subfooter end -->
   </body>
 

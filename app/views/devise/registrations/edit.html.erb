@@ -19,25 +19,6 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
     <h2>User Profile</h2>
 
   <div class = "field">
@@ -79,7 +60,7 @@
 
   <div class = "field">
     <%= f.label :Partner_preference %><br />
-      <%= f.select :partner_gender, ['Male & Female','male', 'female']%>
+      <%= f.select :partner_gender, ['male', 'female']%>
   </div>
 
   <div class = "field">
@@ -110,21 +91,45 @@
   <div class = "field">
     <%= f.fields_for :user_activities do |o| %>
     <%= o.label :activities, "Select your activities" %><br />
-    <%= o.select :activities, options_for_select(Activity.all.map(&:name)), {}, {:multiple => true, class: 'js-example-basic-multiple form-control'} %>
+    <%= o.select :activities, options_for_select(Activity.all.map{|activity| [activity.name, activity.id]}, current_user.activities.map{|activity| [activity.name]}), {}, {:multiple => true, class: 'js-example-basic-multiple form-control'} %>
     <% end %>
   </div>
 
-<script type="text/javascript">
-  $(".js-example-basic-single").select2();
-</script>
-
   <script type="text/javascript">
-    $(".js-example-basic-multiple").select2();
+    $(".js-example-basic-single").select2({
+      data: current_user.activities.map(&:name)
+    });
   </script>
 
+  <script type="text/javascript">
+    $(".js-example-basic-multiple").select2({
+    });
+  </script>
+
+  <div class="field">
     <%= f.label :bio %><br />
-    <%= f.text_field :bio, autofocus: true %>
-  <br />
+    <%= f.text_field :bio, :cols => "10", :rows => "10", autofocus: true %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
 
   <div class="actions">
      <%= f.submit "Update",:class=>'btn btn-primary' %>
