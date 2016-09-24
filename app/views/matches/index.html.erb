@@ -6,19 +6,25 @@
         </div>
     </div>
 
-    <!-- <section class="stats">
-      <%= render 'shared/stats' %>
-    </section> -->
+    <div class= "filterBar">
+  <%= form_tag("/matches", method: "get") do %>
+    <%= check_box_tag(:gender) %>
+    <%= label_tag(:gender, "male") %>
 
-    <!-- <% @users.each do |user| %>
-    <div class="col-md-4">
-    <div class= "index_format">
-      <h3>User_name: <%= link_to user.user_name, "/matches/#{user.id}" %></h3>
-      <h4>Age: <%= user.age %></h4>
-    </div>
-    </div>
-    <% end %>
-    </div> -->
+    <%= check_box_tag(:gender) %>
+    <%= label_tag(:gender, "female") %>
+
+    <%= label_tag(:age, "Age") %>
+    <%= select_tag(:age, options_for_select([["18..26", 26], ["27..30", 31], ["31..40", 41], ["41..50", 51], ["51..60",61]])) %>
+
+    <%= label_tag(:user_exp, "User Experience") %>
+    <%= select_tag(:user_exp, options_for_select(["None","Beginner", "Intermediate", "Expert"])) %>
+
+    <%= label_tag(:activities, "Select your activities") %>
+    <%= select_tag :activities, options_for_select(Activity.all.map{|activity| [activity.name, activity.id]}) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+  </div>
 
     <!-- <div class="clearfix"> -->
     <% @users.find_each do |user| %>

@@ -16,7 +16,6 @@ gem 'rails_12factor', group: :production
 
 gem "font-awesome-rails"
 
-
 gem 'bootstrap-sass'
 
 gem 'puma', '~> 3.0'

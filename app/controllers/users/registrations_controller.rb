@@ -4,14 +4,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
 
-
+  def after_sign_up_path_for(resource)
+    '/users/edit'
+  end
   # POST /resource
   # def create
   #   super
   # end
 
   # GET /resource/edit
-
 
   # PUT /resource
   def update

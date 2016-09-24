@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   get '/matches/:id/edit' => 'matches#edit'
   patch '/matches/:id' => 'matches#update'
   delete '/matches/:id' => 'matches#destroy'
-
   post '/follow/:id' => 'follows#create'
 
   namespace :api do

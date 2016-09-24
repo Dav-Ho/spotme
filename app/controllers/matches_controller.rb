@@ -9,6 +9,10 @@ class MatchesController < ApplicationController
     joins(:activities).where(activities: {name: current_user.activities.map(&:name)}).distinct
   end
 
+  def search
+    @users = User.where(age: age)
+  end
+
   def recommended_search_criteria
     # Activities
     # zipcode & mile radius
