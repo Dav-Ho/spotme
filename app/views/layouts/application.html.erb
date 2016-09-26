@@ -69,7 +69,6 @@
                             <li><a href="/chatrooms/new">Messages</a></li>
                           <% else %>
                             <li><a href="/users/sign_in">Login</a></li>
-                            <li><a href="#service">About</a></li>
                           <% end %>
                           <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false"> Profile <span class="caret"></span></a>
@@ -82,7 +81,6 @@
                               <li><a href="/users/sign_in">Login Account</a></li>
                                 <% end  %>
                               <li role="separator" class="divider"></li>
-                              <li><a href="#">Separated link</a></li>
                             </ul>
                           </li>
   											</ul>
@@ -102,14 +100,8 @@
   				</div>
   			</div>
   		</header>
-      
-      <% if user_signed_in? %>
-      <section class="stats">
-        <h2><%= current_user.first_name %> <%= current_user.last_name  %></h2>
-        <h4><%= link_to "View my Profile", "/users/#{current_user.id}" %></h4>
-          <%= render 'shared/stats' %>
-      </section>
-      <% end %>
+
+
   		<!-- header end -->
     <%= yield %>
 

@@ -10,22 +10,38 @@ class MatchesController < ApplicationController
   end
 
   def search
-    @users = User.where(age: age)
+    @users = User.where(age: convert_to_range, user_exp: params[:user_exp]).where.not(id:current_user.id)
+    @users = @users.where(gender: gender_search)
+    @users = @users.joins(:activities).where(activities:{name: activity_search}) if params[:activities]
+    render 'index'
   end
 
-  def recommended_search_criteria
+  def activity_search
+    Activity.where(id: params[:activities]).map(&:name)
+  end
+
+  def convert_to_range
+    params[:age].split('..').inject {|s,e| s.to_i..e.to_i }
+  end
+
+  def gender_search
+    return ["male", "female"] if params[:male] == "1" && params[:female] == "1"
+    return ["male"] if params[:male] == "1"
+    return ["female"] if params[:female] == "1"
+    return ""
+  end
     # Activities
     # zipcode & mile radius
     # Ages
     # Gym
     # Experience
     # Preferred Gender
+  
+  def recommended_search_criteria
     {
-      # zipcode: #5 mile radius of current user zip code
       age: age_range,
       state: current_user.state,
-      # gym: current_user.gym,
-      user_exp: current_user.user_exp,
+      # user_exp: current_user.user_exp,
       gender: current_user.partner_gender
     }
   end

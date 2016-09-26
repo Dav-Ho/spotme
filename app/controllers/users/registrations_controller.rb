@@ -7,6 +7,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     '/users/edit'
   end
+
+  def after_sign_in_path_or(resource)
+    '/matches/index'
+  end
   # POST /resource
   # def create
   #   super
@@ -21,6 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource_updated = update_resource(resource, account_update_params)
     yield resource if block_given?
     if resource_updated
+      current_user.activities.destroy_all
       activity_ids = params["user"]["user_activities"]["activities"].reject{|id| id.empty?}
       activity_ids.each do |activity_id|
         UserActivity.create(user_id: resource.id, activity_id: activity_id)

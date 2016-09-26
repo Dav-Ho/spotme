@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: {registrations: 'users/registrations'}
 
   get '/welcome' => "workouts#welcome"
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
   patch '/workouts' => "workouts#update"
 
   get '/matches' => 'matches#index'
+  get '/search' => 'matches#search'
   get '/matches/:id' => 'matches#show'
   get '/matches/:id/edit' => 'matches#edit'
   patch '/matches/:id' => 'matches#update'
@@ -41,11 +41,10 @@ Rails.application.routes.draw do
   devise_scope :user do
     authenticated :user do
       root "matches#index", as: :authenticated_root
-  end
-
-  unauthenticated do
-    root "workouts#welcome", as: :unauthenticated_root
-  end
+    end
+    unauthenticated :user do
+      root "workouts#welcome", as: :unauthenticated_root
+    end
   end
 
 end

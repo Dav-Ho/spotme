@@ -1,8 +1,8 @@
 <div class=border-favorite-form>
-<h3>Followers</h3>
-<% @user.followers.each do |user_id| %>
+<center><h3>Followers</h3></center>
+<% @user.followers.each do |person| %>
   <ul>
-    <li><%= user_id.user_name %></li>
+      <li><h4><%= link_to "#{person.user_name}", "/users/#{person.id}" %></h4></li>
   </ul>
 <% end %>
 </div>

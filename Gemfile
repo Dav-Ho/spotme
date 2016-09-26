@@ -9,6 +9,8 @@ gem 'devise'
 
 gem "geocoder"
 
+gem "carrierwave"
+
 # Create multiple accounts
 gem 'faker'
 
