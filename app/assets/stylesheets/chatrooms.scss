@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .fixed-panel {
-  height: 250px;
-  overflow-y: scroll;
+  height: 350px;
+  overflow-y: auto;
+}
+
+.textarea {
+  width: 300px;
+  height: 150px; 
 }

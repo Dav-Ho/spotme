@@ -2,7 +2,9 @@
 <center><h3>Followers</h3></center>
 <% @user.followers.each do |person| %>
   <ul>
-      <li><h4><%= link_to "#{person.user_name}", "/users/#{person.id}" %></h4></li>
+      <div class= "border">
+        <li><h4><%= link_to "#{person.user_name}", "/users/#{person.id}" %></h4></li>
+      </div>
   </ul>
 <% end %>
 </div>

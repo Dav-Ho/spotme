@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   delete '/matches/:id' => 'matches#destroy'
   post '/follow/:id' => 'follows#create'
 
+  get "/users/:id" => 'users#show'
+
   namespace :api do
     namespace :v1 do
       get '/chatrooms/:id' => 'chatrooms#show'

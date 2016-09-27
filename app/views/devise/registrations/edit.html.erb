@@ -1,6 +1,6 @@
 
 <div class="border-form-div">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2> User Information</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { method: :put, :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
@@ -39,7 +39,7 @@
       "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH",
       "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT",
       "VA", "WA", "WV", "WI", "WY"] %>
-  </div>
+  </div><br />
 
   <div class = "field">
     <%= f.label :city %><br />
@@ -112,7 +112,7 @@
 
   <div class="field">
     <%= f.label :bio %><br />
-    <%= f.text_field :bio, :cols => "10", :rows => "10", autofocus: true %>
+    <%= f.text_area :bio, size: "75*15", autofocus: true %>
   </div>
 
 
@@ -130,8 +130,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <h3 style= "color:red">Confirm Changes</h3>
+
   <div class="field">
-    <%= f.label :current_password %> <i>(Confirm changes by putting current password)</i><br />
+    <%= f.label :current_password %> <i>(CONFIRM CHANGES BY INPUTTING PASSWORD)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 

@@ -14,8 +14,10 @@
     <% end %>
     </div>
   <% end %>
-
-<h2><%= @user.first_name %></h2>
+<div class= avatar-show>
+<%= image_tag @user.photo_url unless @user.photo.blank? %>
+</div>
+<center><h2><%= @user.first_name %></h2></center>
 <h4>User name: <%= @user.user_name %></h4>
 <h4>Gender: <%= @user.gender %></h4>
 <h4>Searching for workout partners that are: <%= @user.partner_gender %></h4>
@@ -27,5 +29,5 @@
 <h4>State:<%= @user.state %></h4>
 <h4>Activity: <%= @user.activities.map(&:name).join(", ") %></h4>
 <h4>Bio: <%= @user.bio %></h4>
-
+<a class="btn btn-primary" href= "#" onclick="history.go(-1)" role="button">Back To Search</a>
 </div>

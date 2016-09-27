@@ -1,8 +1,9 @@
 <div class=border-favorite-form>
   <center><h1>Following View</h1></center>
 <% @user.following.each do |person| %>
-  <ul>
-    <li><h4><%= link_to "#{person.user_name}", "/users/person.id" %></h4></li>
+  <ul class="list-unstyled">
+    <li><h4><%= link_to "#{person.user_name}", "/users/#{person.id}" %></h4></li>
+    <!-- <a href="/users/person.id" class="btn btn-primary active" role="button" aria-pressed="true">View Profile</a> -->
   </ul>
 <% end %>
 </div>

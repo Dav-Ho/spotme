@@ -2,19 +2,19 @@ Faker::Config.locale="ny"
 exp = ['None','Beginner','Intermediate','Expert']
 gender_array = ['male','female']
 relationship = ['Single','In Relationship','Married']
-Activity.create([
-  {name: 'Weight Lifting'},
-  {name: 'Running'},
-  {name: 'Cycling'},
-  {name: 'Yoga'},
-  {name: 'Dancing'},
-  {name: 'Hiking'},
-  {name: 'Pilate'},
-  {name: 'Basketball'},
-  {name: 'Tennis'},
-  {name: 'Soccer'},
-  {name: 'Walking'}
-])
+# Activity.create([
+#   {name: 'Weight Lifting'},
+#   {name: 'Running'},
+#   {name: 'Cycling'},
+#   {name: 'Yoga'},
+#   {name: 'Dancing'},
+#   {name: 'Hiking'},
+#   {name: 'Pilate'},
+#   {name: 'Basketball'},
+#   {name: 'Tennis'},
+#   {name: 'Soccer'},
+#   {name: 'Walking'}
+# ])
 
 100.times do |n|
   first_name = Faker::Name.first_name
