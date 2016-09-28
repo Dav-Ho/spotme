@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :photo, UserPhotoUploader
-  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -38,6 +38,6 @@ class User < ApplicationRecord
   end
 
   def chatroom(user_id)
-    chatroom = Chatroom.find_by(current_user_id: [id, user_id], user_id: [id, user_id])
+    chatroom = Chatroom.find_by(user_1_id: [id, user_id], user_2_id: [id, user_id])
   end
 end

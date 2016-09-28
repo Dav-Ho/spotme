@@ -6,13 +6,13 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.create(current_user_id: current_user.id, user_id: params[:user_id])
+    @chatroom = Chatroom.create(user_1_id: current_user.id, user_2_id: params[:user_id])
     redirect_to "/chatrooms/#{@chatroom.id}"
   end
 
   def show
     @chatroom = Chatroom.find_by(id: params[:id])
-    user_id = @chatroom.current_user_id == current_user.id ? @chatroom.user_id : @chatroom.user_id
-    @user = User.find_by(id: user_id)
+    user_id = @chatroom.user_1_id == current_user.id ? @chatroom.user_2_id : @chatroom.user_1_id
+    @recipient = User.find_by(id: user_id)
   end
 end
