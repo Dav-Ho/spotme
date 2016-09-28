@@ -49,14 +49,14 @@
 
   <!-- <div class="clearfix"> -->
   <% @users.uniq.find_each do |user| %>
-
       <div class="col-lg-4 col-xs-6 text-center">
         <div class="user_border">
         <div class="display_avatar">
-          <%= image_tag(user.photo_url, size: "180x50",) unless user.photo.blank? %>
+          <%= image_tag(user.photo_url, size: "180x50") unless user.photo.blank? %>
         </div>
           <h3>Username: <%= link_to user.user_name, "/users/#{user.id}" %></h3>
           <h4>Age: <%= user.age %></h4>
+          <h4>Activities: <%= user.activities.map(&:name).join(", ") %></h4>
         </div>
       </div>
   <% end %>

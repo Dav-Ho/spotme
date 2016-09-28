@@ -20,7 +20,6 @@
         <% @users.each do |user| %>
             <% if current_user.chatroom(user.id) %>
                 <li><h3><%= link_to user.user_name, "/chatrooms/#{current_user.chatroom(user.id).id}" %></h3></li>
-                 <!-- <a class="btn btn-primary" href="/users/#{user.id}" role="button">View Profile</a> -->
             <% else %>
                 <li><h3><%= link_to user.user_name, "/chatrooms?user_id=#{user.id}", method: 'post' %></h3></li>
             <% end %>
@@ -28,3 +27,4 @@
     </ul>
     </div>
 </div>
+<!-- <a class="btn btn-primary" href="users/user.id" role="button">View Profile</a> -->
